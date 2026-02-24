@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL (Structured Query Language) in one page : SQL.SU</title>
+  <meta name="description" content="SQL (Structured Query Language) in one page : SQL.SU">
+  <meta name="keywords" content="SQL (Structured Query Language) in one page : SQL.SU : SQL use to access and manipulate data in Oracle, Sybase, Microsoft SQL Server, DB2, Access, MySQL, PostgreSQL and other database systems">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900 font-sans">
+  <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <header class="text-center mb-12">
+      <h1 class="text-5xl font-bold text-blue-600 mb-4">SQL (Structured Query Language) in one page</h1>
+      <p class="text-lg text-gray-600">A comprehensive guide to SQL commands and syntax</p>
+    </header>
+
+    <nav class="bg-white p-6 rounded-lg shadow-md mb-12">
+      <h2 class="text-2xl font-semibold mb-4 text-gray-800">Table of Contents</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+        <a href="#database_manipulation" class="text-blue-600 hover:text-blue-800 hover:underline">Database Manipulation</a>
+        <a href="#table_manipulation" class="text-blue-600 hover:text-blue-800 hover:underline">Table Manipulation</a>
+        <a href="#index_manipulation" class="text-blue-600 hover:text-blue-800 hover:underline">Index Manipulation</a>
+        <a href="#data_manipulation" class="text-blue-600 hover:text-blue-800 hover:underline">Data Manipulation</a>
+        <a href="#select" class="text-blue-600 hover:text-blue-800 hover:underline">Select</a>
+        <a href="#alias" class="text-blue-600 hover:text-blue-800 hover:underline">Alias</a>
+        <a href="#join" class="text-blue-600 hover:text-blue-800 hover:underline">Join</a>
+        <a href="#union" class="text-blue-600 hover:text-blue-800 hover:underline">UNION</a>
+        <a href="#into" class="text-blue-600 hover:text-blue-800 hover:underline">SELECT INTO/IN</a>
+        <a href="#view" class="text-blue-600 hover:text-blue-800 hover:underline">CREATE VIEW</a>
+      </div>
+    </nav>
+    <section id="database_manipulation" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Database Manipulation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">CREATE DATABASE</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">CREATE DATABASE <span class="text-blue-600">database_name</span></code>
+          <p class="text-gray-700 mb-3">Create a database</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">CREATE DATABASE My_First_Database</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">DROP DATABASE</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">DROP DATABASE <span class="text-blue-600">database_name</span></code>
+          <p class="text-gray-700 mb-3">Delete a database</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">DROP DATABASE My_First_Database</code>
+        </div>
+      </div>
+    </section>
+    <section id="table_manipulation" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Table Manipulation</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">CREATE TABLE</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">CREATE TABLE "<span class="text-blue-600">table_name</span>"<br>("<span class="text-blue-600">column_1</span>" "<span class="text-blue-600">data_type_for_column_1</span>",<br>"<span class="text-blue-600">column_2</span>" "<span class="text-blue-600">data_type_for_column_2</span>",<br>... )</code>
+          <p class="text-gray-700 mb-3">Create a table in a database.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">CREATE TABLE Person<br>(LastName varchar,<br>FirstName varchar,<br>Address varchar,<br>Age int)</code>
+          <h4 class="text-lg font-semibold mt-4 mb-2">Data Types</h4>
+          <table class="w-full table-auto border-collapse border border-gray-300">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2 text-left">Data Type</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">integer(size)</td>
+                <td class="border border-gray-300 px-4 py-2">Hold integers only. The maximum number of digits are specified in parenthesis.</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">int(size)</td>
+                <td class="border border-gray-300 px-4 py-2"></td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">smallint(size)</td>
+                <td class="border border-gray-300 px-4 py-2"></td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">tinyint(size)</td>
+                <td class="border border-gray-300 px-4 py-2"></td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">decimal(size,d)</td>
+                <td class="border border-gray-300 px-4 py-2">Hold numbers with fractions. The maximum number of digits are specified in "size". The maximum number of digits to the right of the decimal is specified in "d".</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">numeric(size,d)</td>
+                <td class="border border-gray-300 px-4 py-2"></td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">char(size)</td>
+                <td class="border border-gray-300 px-4 py-2">Holds a fixed length string (can contain letters, numbers, and special characters). The fixed size is specified in parenthesis.</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">varchar(size)</td>
+                <td class="border border-gray-300 px-4 py-2">Holds a variable length string (can contain letters, numbers, and special characters). The maximum size is specified in parenthesis.</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-2">date(yyyymmdd)</td>
+                <td class="border border-gray-300 px-4 py-2">Holds a date</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">ALTER TABLE ADD</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">ALTER TABLE <span class="text-blue-600">table_name</span> ADD <span class="text-blue-600">column_name</span> <span class="text-blue-600">datatype</span></code>
+            <p class="text-gray-700 mb-3">Add columns in an existing table.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono">ALTER TABLE Person ADD Sex char(6)</code>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">ALTER TABLE DROP</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">ALTER TABLE <span class="text-blue-600">table_name</span> DROP <span class="text-blue-600">column_name</span> <span class="text-blue-600">datatype</span></code>
+            <p class="text-gray-700 mb-3">Delete columns in an existing table.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono">ALTER TABLE Person DROP Sex char(6)</code>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">DROP TABLE</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">DROP TABLE <span class="text-blue-600">table_name</span></code>
+            <p class="text-gray-700 mb-3">Delete a table.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono">DROP TABLE Person</code>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="index_manipulation" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Index Manipulation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">CREATE INDEX</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">CREATE INDEX <span class="text-blue-600">index_name</span><br>ON <span class="text-blue-600">table_name</span> (<span class="text-blue-600">column_name_1</span>, <span class="text-blue-600">column_name_2</span>, ...)</code>
+          <p class="text-gray-700 mb-3">Create a simple index.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">CREATE INDEX PersonIndex<br>ON Person (LastName, FirstName)</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">CREATE UNIQUE INDEX</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">CREATE UNIQUE INDEX <span class="text-blue-600">index_name</span><br>ON <span class="text-blue-600">table_name</span> (<span class="text-blue-600">column_name_1</span>, <span class="text-blue-600">column_name_2</span>, ...)</code>
+          <p class="text-gray-700 mb-3">Create a unique index.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">CREATE UNIQUE INDEX PersonIndex<br>ON Person (LastName DESC)</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">DROP INDEX</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">DROP INDEX <span class="text-blue-600">table_name.index_name</span></code>
+          <p class="text-gray-700 mb-3">Delete an index.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">DROP INDEX Person.PersonIndex</code>
+        </div>
+      </div>
+    </section>
+    <section id="data_manipulation" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Data Manipulation</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">INSERT INTO (Basic)</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">INSERT INTO <span class="text-blue-600">table_name</span><br>VALUES (<span class="text-blue-600">value_1</span>, <span class="text-blue-600">value_2</span>,....)</code>
+          <p class="text-gray-700 mb-3">Insert new rows into a table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">INSERT INTO Persons<br>VALUES('Hussein', 'Saddam', 'White House')</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">INSERT INTO (With Columns)</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">INSERT INTO <span class="text-blue-600">table_name</span> (<span class="text-blue-600">column1</span>, <span class="text-blue-600">column2</span>,...)<br>VALUES (<span class="text-blue-600">value_1</span>, <span class="text-blue-600">value_2</span>,....)</code>
+          <p class="text-gray-700 mb-3">Insert new rows into a table specifying columns.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">INSERT INTO Persons (LastName, FirstName, Address)<br>VALUES('Hussein', 'Saddam', 'White House')</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">UPDATE</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">UPDATE <span class="text-blue-600">table_name</span><br>SET <span class="text-blue-600">column_name_1</span> = <span class="text-blue-600">new_value_1</span>, <span class="text-blue-600">column_name_2</span> = <span class="text-blue-600">new_value_2</span><br>WHERE <span class="text-blue-600">column_name</span> = <span class="text-blue-600">some_value</span></code>
+          <p class="text-gray-700 mb-3">Update one or several columns in rows.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">UPDATE Person<br>SET Address = 'ups'<br>WHERE LastName = 'Hussein'</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">DELETE FROM</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">DELETE FROM <span class="text-blue-600">table_name</span><br>WHERE <span class="text-blue-600">column_name</span> = <span class="text-blue-600">some_value</span></code>
+          <p class="text-gray-700 mb-3">Delete rows in a table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">DELETE FROM Person WHERE LastName = 'Hussein'</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">TRUNCATE TABLE</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">TRUNCATE TABLE <span class="text-blue-600">table_name</span></code>
+          <p class="text-gray-700 mb-3">Deletes the data inside the table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">TRUNCATE TABLE Person</code>
+        </div>
+      </div>
+    </section>
+    <section id="select" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Select</h2>
+      <div class="space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">SELECT</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">SELECT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name</span></code>
+            <p class="text-gray-700 mb-3">Select data from a table.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT LastName, FirstName FROM Persons</code>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">SELECT *</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">SELECT * FROM <span class="text-blue-600">table_name</span></code>
+            <p class="text-gray-700 mb-3">Select all data from a table.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT * FROM Persons</code>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">SELECT DISTINCT</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">SELECT DISTINCT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name</span></code>
+            <p class="text-gray-700 mb-3">Select only distinct (different) data from a table.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT DISTINCT LastName, FirstName FROM Persons</code>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">SELECT with WHERE</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name</span>
+WHERE <span class="text-blue-600">column</span> <span class="text-blue-600">operator</span> <span class="text-blue-600">value</span></code>
+          <p class="text-gray-700 mb-3">Select only certain data from a table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT * FROM Persons WHERE sex='female'</code>
+          <h4 class="text-lg font-semibold mt-4 mb-2">Operators</h4>
+          <table class="w-full table-auto border-collapse border border-gray-300">
+            <thead>
+              <tr class="bg-gray-200">
+                <th class="border border-gray-300 px-4 py-2 text-left">Operator</th>
+                <th class="border border-gray-300 px-4 py-2 text-left">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="border border-gray-300 px-4 py-2">=</td><td class="border border-gray-300 px-4 py-2">Equal</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">&lt;&gt;</td><td class="border border-gray-300 px-4 py-2">Not equal</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">&gt;</td><td class="border border-gray-300 px-4 py-2">Greater than</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">&lt;</td><td class="border border-gray-300 px-4 py-2">Less than</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">&gt;=</td><td class="border border-gray-300 px-4 py-2">Greater than or equal</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">&lt;=</td><td class="border border-gray-300 px-4 py-2">Less than or equal</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">BETWEEN</td><td class="border border-gray-300 px-4 py-2">Between an inclusive range</td></tr>
+              <tr><td class="border border-gray-300 px-4 py-2">LIKE</td><td class="border border-gray-300 px-4 py-2">Search for a pattern. A "%" sign can be used to define wildcards.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">ORDER BY</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name</span>
+ORDER BY <span class="text-blue-600">column_name</span> ASC|DESC</code>
+            <p class="text-gray-700 mb-3">Sort the rows.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT * FROM Persons
+ORDER BY LastName</code>
+          </div>
+          <div class="bg-white p-6 rounded-lg shadow-md">
+            <h3 class="text-xl font-semibold mb-2">GROUP BY</h3>
+            <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name</span>
+GROUP BY <span class="text-blue-600">column_name</span></code>
+            <p class="text-gray-700 mb-3">Group rows that have the same values.</p>
+            <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT COUNT(*), LastName
+FROM Persons
+GROUP BY LastName</code>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Aggregate Functions</h3>
+          <p class="text-gray-700 mb-3">Common aggregate functions: AVG(), COUNT(), MAX(), MIN(), SUM()</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT AVG(Price) FROM Products</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="alias" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Alias</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Column Alias</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">SELECT <span class="text-blue-600">column_name</span> AS <span class="text-blue-600">column_alias</span> FROM <span class="text-blue-600">table_name</span></code>
+          <p class="text-gray-700 mb-3">Column name alias</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT LastName AS Family, FirstName AS Name FROM Persons</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">Table Alias</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3">SELECT <span class="text-blue-600">table_alias.column_name</span> FROM <span class="text-blue-600">table_name</span> AS <span class="text-blue-600">table_alias</span></code>
+          <p class="text-gray-700 mb-3">Table name alias</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono">SELECT p.LastName FROM Persons AS p</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="join" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">Join</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">INNER JOIN</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_1_name</span>, <span class="text-blue-600">column_2_name</span>, ...
+FROM <span class="text-blue-600">first_table_name</span>
+INNER JOIN <span class="text-blue-600">second_table_name</span>
+ON <span class="text-blue-600">first_table_name.keyfield</span> = <span class="text-blue-600">second_table_name.foreign_keyfield</span></code>
+          <p class="text-gray-700 mb-3">Returns rows when there is at least one match in both tables.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT Employees.Name, Orders.Product
+FROM Employees
+INNER JOIN Orders
+ON Employees.Employee_ID=Orders.Employee_ID</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">LEFT JOIN</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_1_name</span>, <span class="text-blue-600">column_2_name</span>, ...
+FROM <span class="text-blue-600">first_table_name</span>
+LEFT JOIN <span class="text-blue-600">second_table_name</span>
+ON <span class="text-blue-600">first_table_name.keyfield</span> = <span class="text-blue-600">second_table_name.foreign_keyfield</span></code>
+          <p class="text-gray-700 mb-3">Returns all rows from the first table, even if there are no matches in the second table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT Employees.Name, Orders.Product
+FROM Employees
+LEFT JOIN Orders
+ON Employees.Employee_ID=Orders.Employee_ID</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">RIGHT JOIN</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_1_name</span>, <span class="text-blue-600">column_2_name</span>, ...
+FROM <span class="text-blue-600">first_table_name</span>
+RIGHT JOIN <span class="text-blue-600">second_table_name</span>
+ON <span class="text-blue-600">first_table_name.keyfield</span> = <span class="text-blue-600">second_table_name.foreign_keyfield</span></code>
+          <p class="text-gray-700 mb-3">Returns all rows from the second table, even if there are no matches in the first table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT Employees.Name, Orders.Product
+FROM Employees
+RIGHT JOIN Orders
+ON Employees.Employee_ID=Orders.Employee_ID</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="union" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">UNION</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-2">UNION</h3>
+        <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name1</span>
+UNION
+SELECT <span class="text-blue-600">column_name(s)</span> FROM <span class="text-blue-600">table_name2</span></code>
+        <p class="text-gray-700 mb-3">Combines the result-set of two or more SELECT statements.</p>
+        <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT E_Name FROM Employees_Norway
+UNION
+SELECT E_Name FROM Employees_USA</code>
+      </div>
+    </section>
+
+    <section id="into" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">SELECT INTO/IN</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">SELECT INTO</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_name(s)</span> INTO <span class="text-blue-600">new_table_name</span>
+FROM <span class="text-blue-600">table_name</span></code>
+          <p class="text-gray-700 mb-3">Creates a new table and fills it with data from an existing table.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT * INTO Persons_Backup
+FROM Persons</code>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-semibold mb-2">SELECT IN</h3>
+          <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">SELECT <span class="text-blue-600">column_name(s)</span> IN <span class="text-blue-600">external_database</span>
+FROM <span class="text-blue-600">table_name</span></code>
+          <p class="text-gray-700 mb-3">Copies data from one database to another.</p>
+          <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">SELECT Persons.LastName IN 'Backup.mdb'
+FROM Persons</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="view" class="mb-12">
+      <h2 class="text-3xl font-bold mb-6 text-gray-800">CREATE VIEW</h2>
+      <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-semibold mb-2">CREATE VIEW</h3>
+        <code class="block bg-gray-100 p-3 rounded text-sm font-mono mb-3 whitespace-pre-line">CREATE VIEW <span class="text-blue-600">view_name</span> AS
+SELECT <span class="text-blue-600">column_name(s)</span>
+FROM <span class="text-blue-600">table_name</span>
+WHERE <span class="text-blue-600">condition</span></code>
+        <p class="text-gray-700 mb-3">Creates a view based on the result set of a SELECT statement.</p>
+        <code class="block bg-green-100 p-3 rounded text-sm font-mono whitespace-pre-line">CREATE VIEW [Current Product List] AS
+SELECT ProductID, ProductName
+FROM Products
+WHERE Discontinued = No</code>
+      </div>
+    </section>
+
+     
+  </div>
+</body>
+</html>
+
+  
