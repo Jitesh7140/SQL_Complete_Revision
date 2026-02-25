@@ -38,4 +38,9 @@ select name , email from rich_users;
 DROP VIEW rich_users;
 
 
+-- ----------------------------------------------    ------------------------ 
+select * from users where salary > (select avg(salary) from users);
 
+select * from users where salary > (select avg(salary) from users)
+UNION
+select * from admin_users where salary > (select avg(salary) from admin_users); 
