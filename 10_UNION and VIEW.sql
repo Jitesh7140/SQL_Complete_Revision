@@ -30,5 +30,12 @@ UNION
 select name , email , 'ADMIN' AS role from admin_users
 
 
+-- ---------------------------------------------- CREATING VIEW ------------------------ 
+SELECT * FROM users WHERE salary>70000;
+
+select name , email from rich_users; 
+
+DROP VIEW rich_users;
+
 
 
