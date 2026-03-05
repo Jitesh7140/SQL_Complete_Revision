@@ -17,3 +17,4 @@ title varchar(255) not null ,
 released_year YEAR,
 genre varchar(50)
 );
+
