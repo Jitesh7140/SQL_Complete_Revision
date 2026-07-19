@@ -9,7 +9,7 @@ city VARCHAR(100),
 state VARCHAR(100),
 pincode VARCHAR(10),
 CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-);
+); 
 
 INSERT INTO addresses (user_id, street, city, state, pincode)
 VALUES
